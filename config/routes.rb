@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'static_pages#home'
   post 'events/:id/attend', as: 'attend', to: 'events#attend'
   post   'events/new', to: 'events#create'
   get    '/login',     to: 'sessions#new'
