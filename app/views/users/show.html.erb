@@ -1,0 +1,28 @@
+<div class = "container">
+<h1> Welcome, <%= @user.name %> </h1>
+
+<% if @user.events.count > 0 %>
+  <h2>Events created: </h2>
+  <%= render @events %>
+<% else %>
+  <h2>You haven't created any events yet</h2>
+<% end %>
+
+
+<% if @user.attended_events.previous_events.count > 0 %>
+  <h2>Attended: </h2>
+  <br>
+  <% @user.attended_events.previous_events.each do |event| %>
+    <%= link_to event.title, event_path%>
+  <% end %>
+<%end%>
+
+<% if @user.attended_events.upcoming_events.count > 0 %>
+  <h2>Attending: </h2>
+  <br>
+  <% @user.attended_events.upcoming_events.each do |event| %>
+    <%= link_to event.title, event_path%>
+    <br>
+  <% end %>
+<%end%>
+</div>
