@@ -2,12 +2,12 @@
 
 one:
   title: MyString
-  date: 2019-10-24
+  date: 2019-10-25
   description: MyText
-  creator_id: 1
+  location: MyString
 
 two:
   title: MyString
-  date: 2019-10-24
+  date: 2019-10-25
   description: MyText
-  creator_id: 1
+  location: MyString
