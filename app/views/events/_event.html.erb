@@ -1,0 +1,14 @@
+  <h3>Title: <%= event.title %></h3>
+  
+  <h4>Location: <%= event.location %> </h4>
+  <h4>Date: <%= event.date %></h4>
+  <p>Description: <%= event.description %> </p>
+  <% if !current_page?(event_path(id: event.id)) %>
+      <%= link_to 'View Event', event, class: 'btn btn-primary'%>
+  <% end %>
+  <% if :button && event.creator != current_user && current_user.attended_events.find_by(id: event.id).nil? && event.date >= Date.today %>
+    <%= link_to 'Attend Event', attend_path(event), class: 'btn btn-success', method: :post %>
+  <% end %>
+  <hr>
+
+  
