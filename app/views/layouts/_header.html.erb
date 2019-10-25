@@ -1,24 +1,25 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
+  <div class="container-fluid nav-cont">
+    <%= link_to "EVENT PLANNER", events_path, id: "logo", class: "links" %>
     <nav>
       <ul>
-        <li class="nav-links">how</li>
-        <li class="nav-links">and you</li>
-          <li class="nav-links">you see</li>
+        <li class="nav-links"><%= link_to "Home", root_path, class: "links" %></li>
+        <% if logged_in? %>
+        <li class="nav-links"><%= link_to 'Events', events_path, class: "links" %> </li>
           <li class="dropdown nav-links">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+            <a href="#" class="dropdown-toggle links" data-toggle="dropdown">
+              Your Account <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
-              <li>drop down</li>
-              <li>drop down</li>
-              <li class="divider">drop down</li>
+            <ul class="dropdown-menu bg-dark">
+              <li><%= link_to "Profile", current_user, class: "links" %></li>
+              <li class="divider"><%= link_to "Log out", logout_path, method: :delete, class: "links" %></li>
             </ul>
           </li>
-          <li class="nav-links">link</li>
+          <% else %>
+          <li class="nav-links"><%= link_to "Sign up", new_user_path, class: "links" %></li>
+          <li class="nav-links"><%= link_to "Log in", login_path, class: "links" %></li>
+          <% end %>
       </ul>
     </nav>
   </div>
 </header>
-
