@@ -17,9 +17,7 @@ RSpec.describe User, type: :model do
       expect(@user).not_to be_valid
     end
 
-  end
-
-  it "email should be present" do
+    it "email should be present" do
       @user.email = "     "
       expect(@user).not_to be_valid
     end
@@ -27,13 +25,13 @@ RSpec.describe User, type: :model do
     it "name should not be too long" do
       @user.name = "a" * 51
       expect(@user).not_to be_valid
-    end
+    end 
 
-    it "email should not be too long" do
+    it "email should not be too long" do 
       @user.email = "a" * 251 + "@example.com"
       expect(@user).not_to be_valid
-    end
-  end
+    end 
+  end 
 
   context "email validation" do
 
@@ -53,7 +51,7 @@ RSpec.describe User, type: :model do
         @user.email = invalid_address
         expect(@user).not_to be_valid, "#{invalid_address.inspect} should be invalid"
       end
-    end
+    end 
 
     it "email addresses should be unique" do
       duplicate_user = @user.dup
@@ -62,3 +60,4 @@ RSpec.describe User, type: :model do
       expect(duplicate_user).not_to be_valid
     end
   end 
+end
