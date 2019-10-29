@@ -29,5 +29,25 @@ RSpec.describe Event, type: :model do
     it "date must be present" do
         @event.date = "  "
         expect(@event).not_to be_valid
+    end
+
+    it "location must be present" do
+      @event.location = "     "
+      expect(@event).not_to be_valid
+    end
+
+    it "location should not be more than 100 words" do
+      @event.location = "a" * 101
+      expect(@event).not_to be_valid
+    end
+
+    it "title must be present" do
+      @event.title = "     "
+      expect(@event).not_to be_valid
+    end
+
+    it "title should not be more than 100 words" do
+      @event.title = "a" * 101
+      expect(@event).not_to be_valid
     end 
 end
