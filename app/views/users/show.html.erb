@@ -9,7 +9,7 @@
 <% end %>
 
 
-<% if @user.attended_events.previous_events.count > 0 %>
+<% if @count_previous_event > 0 %>
   <h2>Attended: </h2>
   <br>
   <% @user.attended_events.previous_events.each do |event| %>
@@ -17,7 +17,7 @@
   <% end %>
 <%end%>
 
-<% if @user.attended_events.upcoming_events.count > 0 %>
+<% if @count_upcoming_event > 0 %>
   <h2>Attending: </h2>
   <br>
   <% @user.attended_events.upcoming_events.each do |event| %>
