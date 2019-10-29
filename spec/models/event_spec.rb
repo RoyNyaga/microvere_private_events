@@ -16,12 +16,18 @@ RSpec.describe Event, type: :model do
 
   end
 
+    it "description must be present" do
+         @event.description = "  "
+         expect(@event).not_to be_valid
+    end
+
+    it "description should not be more than 200 words" do
+        @event.description = "a" * 201
+        expect(@event).not_to be_valid
+    end
+
+    it "date must be present" do
+        @event.date = "  "
+        expect(@event).not_to be_valid
+    end 
 end
-
-
-
-
-
-
-
-
