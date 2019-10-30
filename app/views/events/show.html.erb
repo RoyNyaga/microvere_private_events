@@ -1,0 +1,15 @@
+
+
+<div class="container text-center">
+  <h1 class="">Event: <%= @event.title %></h1>
+  <div class="col-md-6 mx-auto mt-5">
+    <%= render @event, view_button: false %>
+    <% if @event.attendees.count > 0 %>
+      <h3>Attendees: </h3>
+      <% @event.attendees.each do |attendee| %>
+        <%= link_to attendee.name, attendee %>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+</div>

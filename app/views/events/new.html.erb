@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-md-6 mx-auto mt-5">
+    <h1>Create Event</h1>
+
+    <%= form_for(@event) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control"  %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "form-control"  %>
+
+      <%= f.label :date %>
+      <%= f.date_field :date, class: "form-control"  %>
+
+      <%= f.submit "Create Event", class: "form-control mt-5 bg-dark text-white"%>
+    <% end %>
+  </div>
+</div>

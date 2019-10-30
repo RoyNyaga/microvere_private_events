@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @previous_events = Event.previous_events
     @today_events = Event.today_events
   end
-  
+
   def attend
     Event.find(params[:id]).attendees << current_user
     flash[:success] = 'You are attending this event!'

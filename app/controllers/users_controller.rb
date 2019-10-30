@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-	
   def new
     @user = User.new
   end
@@ -9,6 +8,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @events = @user.events
+    @count_previous_event = @user.attended_events.previous_events.count
+    @count_upcoming_event = @user.attended_events.upcoming_events.count
   end
 
   def create
